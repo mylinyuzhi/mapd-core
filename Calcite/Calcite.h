@@ -40,6 +40,7 @@ class Calcite {
   Calcite(const int mapd_port, const int port, const std::string& data_dir, const size_t calcite_max_mem);
   std::string process(const Catalog_Namespace::SessionInfo& session_info,
                       const std::string sql_string,
+                      const std::vector<TFilterPushDownInfo>& filter_push_down_info,
                       const bool legacy_syntax,
                       const bool is_explain);
   std::vector<TCompletionHint> getCompletionHints(const Catalog_Namespace::SessionInfo& session_info,
@@ -54,6 +55,7 @@ class Calcite {
   void runServer(const int mapd_port, const int port, const std::string& data_dir, const size_t calcite_max_mem);
   std::string processImpl(const Catalog_Namespace::SessionInfo& session_info,
                           const std::string sql_string,
+                          const std::vector<TFilterPushDownInfo>& filter_push_down_info,
                           const bool legacy_syntax,
                           const bool is_explain);
   std::vector<std::string> get_db_objects(const std::string ra);
